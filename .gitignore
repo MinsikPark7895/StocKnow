@@ -1,0 +1,67 @@
+# ==========================================
+# 1. 보안 및 환경 변수 (절대 깃허브에 올리면 안 되는 파일)
+# ==========================================
+.env
+*.pem
+*.key
+# OpenAI API 키나 DB 비밀번호가 들어갈 수 있는 로컬 설정 파일 예외 처리
+main-server/src/main/resources/application-secret.yml
+main-server/src/main/resources/application-local.yml
+
+# ==========================================
+# 2. Java & Spring Boot (main-server)
+# ==========================================
+# Gradle 관련 빌드 폴더 및 캐시
+main-server/.gradle/
+main-server/build/
+main-server/out/
+main-server/bin/
+
+# 컴파일된 자바 파일
+*.class
+*.log
+*.jar
+*.war
+
+# 단, 프로젝트를 처음 받는 사람도 빌드할 수 있도록 wrapper 파일은 허용
+!gradle/wrapper/gradle-wrapper.jar
+
+# ==========================================
+# 3. Python & FastAPI (ai-engine)
+# ==========================================
+# 가상환경 폴더 (용량이 매우 크므로 절대 푸시 금지)
+ai-engine/venv/
+ai-engine/env/
+.venv/
+
+# 파이썬 캐시 파일
+ai-engine/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# 테스트 및 분석 도구 캐시
+.pytest_cache/
+.mypy_cache/
+
+# ==========================================
+# 4. 데이터베이스 및 로컬 데이터
+# ==========================================
+# ChromaDB 로컬 저장 파일 및 SQLite DB
+chroma/
+chroma_db/
+*.sqlite3
+*.db
+
+# ==========================================
+# 5. OS & IDE (운영체제 및 에디터 환경)
+# ==========================================
+# VS Code 및 IntelliJ
+.vscode/
+.idea/
+*.iml
+*.swp
+
+# Windows & Mac
+Thumbs.db
+.DS_Store
